@@ -115,33 +115,82 @@ def lcm(a, b):
     return math.lcm(int(a), int(b))
 
 
+def get_Number(massages):
+    while True:
+        try:
+            return float(input(massages))
+        except ValueError:
+            print("Please enter valid number")
+
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % 2 == 0:
+            return False
+    return True
+
+
+def show_history():
+    if not history:
+        print("History is empty.")
+        return
+    print("\n=====History=====")
+    for i, item in enumerate(history, 1):
+        print(f"{i} : {item}")
+
+
+history = []
 while True:
     print("--------------------\nWelcome to calculator\n--------------------")
     print(
-        "Basics\n\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n\n\n5.Power\n6.Square Root\n7.Factorial\n8.Absloute Root\n\n\n9.Sin\n10.Asin\n11.Cos\n12.Acos\n13.Tan\n14.Atan\n15.Cot\n16.Acot\n17.Sinh\n18.Cosh\n19.Tanh\n20.Coth\n\n21.Log\n22.Log10\n23.Log2\n\n24.GCD\n25.LCM\n\n26.E\n27.Pi\n\n\n28.Exit"
+        "\nBasics\n\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n-----------------\n\nIntermediate\n\n5.Power\n6.Square Root\n7.Factorial\n8.Absloute Root\n-----------------\n\nTrigonometry\n\n9.Sin\n10.Asin\n11.Cos\n12.Acos\n13.Tan\n14.Atan\n15.Cot\n16.Acot\n17.Sinh\n18.Cosh\n19.Tanh\n20.Coth\n-----------------\n\nAdvanced\n\nLogarithm\n\n21.Log\n22.Log10\n23.Log2\n-----------------\n\n24.GCD\n25.LCM\n-----------------\n\n26.E\n27.Pi\n-----------------\n\n28.Prime Check\n-----------------\n\nAbout History\n29.History\n30.Clear history\n31.Exit\n"
     )
     choose = input("Choose one: ")
-    if choose == "28":
+    if choose == "31":
         print("BYE!")
         break
+    if choose == "29":
+        show_history()
     elif choose in ["1", "2", "3", "4", "5", "24", "25"]:
-        number1 = float(input("Enter first number: "))
-        number2 = float(input("Enter second number: "))
+        number1 = get_Number("Enter first number: ")
+        number2 = get_Number("Enter second number: ")
+
         if choose == "1":
-            print("Result: ", addition(number1, number2))
+            result = addition(number1, number2)
+            print("Result: ", result)
+            history.append(f"{number1} + {number2} = {result}")
+
         elif choose == "2":
-            print("Result: ", subtract(number1, number2))
+            result = subtract(number1, number2)
+            print("Result: ", result)
+            history.append(f"{number1} - {number2} = {result}")
+
         elif choose == "3":
-            print("Result: ", multi(number1, number2))
+            result = multi(number1, number2)
+            print("Result: ", result)
+            history.append(f"{number1} * {number2} = {result}")
+
         elif choose == "4":
-            print("Result: ", division(number1, number2))
+            result = division(number1, number2)
+            print("Result: ", result)
+            history.append(f"{number1} / {number2} = {result}")
+
         elif choose == "5":
-            print("Result: ", power(number1, number2))
+            result = power(number1, number2)
+            print("Result: ", result)
+            history.append(f"{number1} ^ {number2} = {result}")
+
         elif choose == "24":
-            print("Result: ", gcd(number1, number2))
+            result = gcd(number1, number2)
+            print("Result: ", result)
+            history.append(f"GCD ({number1} , {number2})  = {result}")
+
         elif choose == "25":
-            print("Result: ", lcm(number1, number2))
-        
+            result = lcm(number1, number2)
+            print("Result: ", result)
+            history.append(f"LCM ({number1} , {number2})   = {result}")
 
     elif choose in [
         "6",
@@ -163,44 +212,115 @@ while True:
         "22",
         "23",
     ]:
-        number3 = float(input("Enter the number: "))
+        number3 = get_Number("Please enter number: ")
         if choose == "6":
-            print("Result: ", square_root(number3))
+            result = square_root(number3)
+            print("Result: ", result)
+            history.append(f" √{number3} = {result}")
+
         elif choose == "7":
-            print("Result: ", fact(number3))
+            result = fact(number3)
+            print("Result: ", result)
+            history.append(f" {number3}! = {result}")
+
         elif choose == "8":
-            ("Result: ", absolute(number3))
+            result = absolute(number3)
+            print("Result: ", result)
+            history.append(f" √{number3} = {result}")
+
         elif choose == "9":
-            print("Result: ", sin(number3))
+            result = sin(number3)
+            print("Result: ", result)
+            history.append(f" Sin({number3}) = {result}")
+
         elif choose == "10":
-            print("Result: ", asin(number3))
+            result = asin(number3)
+            print("Result: ", result)
+            history.append(f" Arc sin({number3}) = {result}")
+
         elif choose == "11":
-            print("Result: ", cos(number3))
+            result = cos(number3)
+            print("Result: ", result)
+            history.append(f" Cos({number3}) = {result}")
+
         elif choose == "12":
-            print("Result: ", acos(number3))
+            result = acos(number3)
+            print("Result: ", result)
+            history.append(f" Arc cos({number3}) = {result}")
+
         elif choose == "13":
-            print("Result: ", tan(number3))
+            result = tan(number3)
+            print("Result: ", result)
+            history.append(f" Tan({number3}) = {result}")
+
         elif choose == "14":
-            print("Result: ", atan(number3))
+            result = atan(number3)
+            print("Result: ", result)
+            history.append(f" Arc tan({number3}) = {result}")
+
         elif choose == "15":
-            print("Result: ", cot(number3))
+            result = cot(number3)
+            print("Result: ", result)
+            history.append(f" Cot({number3}) = {result}")
+
         elif choose == "16":
-            print("Result: ", acot(number3))
+            result = acot(number3)
+            print("Result: ", result)
+            history.append(f" Arc cot({number3}) = {result}")
+
         elif choose == "17":
-            print("Result: ", sinh(number3))
+            result = sinh(number3)
+            print("Result: ", result)
+            history.append(f" Sinh({number3}) = {result}")
+
         elif choose == "18":
-            print("Result: ", cosh(number3))
+            result = cosh(number3)
+            print("Result: ", result)
+            history.append(f" Cosh({number3}) = {result}")
+
         elif choose == "19":
-            print("Result: ", tanh(number3))
+            result = tanh(number3)
+            print("Result: ", result)
+            history.append(f" Tanh({number3}) = {result}")
+
         elif choose == "20":
-            print("Result: ", coth(number3))
+            result = coth(number3)
+            print("Result: ", result)
+            history.append(f" Coth({number3}) = {result}")
+
         elif choose == "21":
-            print("Result: ", log(number3))
+            result = log(number3)
+            print("Result: ", result)
+            history.append(f" Log({number3}) = {result}")
+
         elif choose == "22":
-            print("Result: ", log10(number3))
+            result = log10(number3)
+            print("Result: ", result)
+            history.append(f" Log10({number3}) = {result}")
+
         elif choose == "23":
-            print("Result: ", log2(number3))
+            result = log2(number3)
+            print("Result: ", result)
+            history.append(f" Log2({number3}) = {result}")
+
+    elif choose == "28":
+        num = get_Number("Please enter number: ")
+        if num.is_integer() and is_prime(int(num)):
+            result = f"{num} is prime!"
+        else:
+            result = f"{num} is not prime!"
+        history.append(f" is_prime({num}) = {result}")
+
     elif choose == "26":
-        print("Pi = ", math.pi)
+        result = math.pi
+        print("Pi = ", result)
+        history.append(f" Pi = {result}")
+
     elif choose == "27":
-        print("E = ", math.e)
+        result = math.e
+        print("E = ", result)
+        history.append(f" E = {result}")
+
+    elif choose == "30":
+        history.clear()
+        print("History cleared!")

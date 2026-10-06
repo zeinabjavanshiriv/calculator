@@ -83,16 +83,48 @@ def log(a):
     return math.log(a)
 
 
+def log10(a):
+    return math.log10(a)
+
+
+def log2(a):
+    return math.log2(a)
+
+
+def sinh(a):
+    return math.sinh(a)
+
+
+def cosh(a):
+    return math.cosh(a)
+
+
+def tanh(a):
+    return math.cosh(a)
+
+
+def coth(a):
+    return 1 / math.tan(a)
+
+
+def gcd(a, b):
+    return math.gcd(int(a), int(b))
+
+
+def lcm(a, b):
+    return math.lcm(int(a), int(b))
+
+
 while True:
     print("--------------------\nWelcome to calculator\n--------------------")
     print(
-        "1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Power\n6.Square Root\n7.Factorial\n\n8.Sin\n9.Asin\n10.Cos\n11.Acos\n12.Tan\n13.Atan\n14.Cotan\n15.Acotan\n\n16.Log\n\n17.Absoulute value\n18.round up\n19.Round down\n\n20.Sinh\n21.Cosh\n22.Tanh\n23.Coth\n\n\n25.Exit\n"
+        "Basics\n\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n\n\n5.Power\n6.Square Root\n7.Factorial\n8.Absloute Root\n\n\n9.Sin\n10.Asin\n11.Cos\n12.Acos\n13.Tan\n14.Atan\n15.Cot\n16.Acot\n17.Sinh\n18.Cosh\n19.Tanh\n20.Coth\n\n21.Log\n22.Log10\n23.Log2\n\n24.GCD\n25.LCM\n\n26.E\n27.Pi\n\n\n28.Exit"
     )
     choose = input("Choose one: ")
-    if choose == "20":
+    if choose == "28":
         print("BYE!")
         break
-    elif choose in ["1", "2", "3", "4", "5"]:
+    elif choose in ["1", "2", "3", "4", "5", "24", "25"]:
         number1 = float(input("Enter first number: "))
         number2 = float(input("Enter second number: "))
         if choose == "1":
@@ -105,6 +137,12 @@ while True:
             print("Result: ", division(number1, number2))
         elif choose == "5":
             print("Result: ", power(number1, number2))
+        elif choose == "24":
+            print("Result: ", gcd(number1, number2))
+        elif choose == "25":
+            print("Result: ", lcm(number1, number2))
+        
+
     elif choose in [
         "6",
         "7",
@@ -120,6 +158,10 @@ while True:
         "17",
         "18",
         "19",
+        "20",
+        "21",
+        "22",
+        "23",
     ]:
         number3 = float(input("Enter the number: "))
         if choose == "6":
@@ -127,26 +169,38 @@ while True:
         elif choose == "7":
             print("Result: ", fact(number3))
         elif choose == "8":
-            print("Result: ", sin(number3))
+            ("Result: ", absolute(number3))
         elif choose == "9":
-            print("Result: ", asin(number3))
+            print("Result: ", sin(number3))
         elif choose == "10":
-            print("Result: ", cos(number3))
+            print("Result: ", asin(number3))
         elif choose == "11":
-            print("Result: ", acos(number3))
+            print("Result: ", cos(number3))
         elif choose == "12":
-            print("Result: ", tan(number3))
+            print("Result: ", acos(number3))
         elif choose == "13":
-            print("Result: ", atan(number3))
+            print("Result: ", tan(number3))
         elif choose == "14":
-            print("Result: ", cot(number3))
+            print("Result: ", atan(number3))
         elif choose == "15":
-            print("Result: ", acot(number3))
+            print("Result: ", cot(number3))
         elif choose == "16":
-            print("Result: ", log(number3))
+            print("Result: ", acot(number3))
         elif choose == "17":
-            print("Result: ", absolute(number3))
+            print("Result: ", sinh(number3))
         elif choose == "18":
-            print("Result: ", round_up(number3))
+            print("Result: ", cosh(number3))
         elif choose == "19":
-            print("Result: ", round_down(number3))
+            print("Result: ", tanh(number3))
+        elif choose == "20":
+            print("Result: ", coth(number3))
+        elif choose == "21":
+            print("Result: ", log(number3))
+        elif choose == "22":
+            print("Result: ", log10(number3))
+        elif choose == "23":
+            print("Result: ", log2(number3))
+    elif choose == "26":
+        print("Pi = ", math.pi)
+    elif choose == "27":
+        print("E = ", math.e)

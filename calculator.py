@@ -13,6 +13,7 @@ def multi(a, b):
     return a * b
 
 
+
 def division(a, b):
     if a == 0:
         return "Can't divid with zero"
